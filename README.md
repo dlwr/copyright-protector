@@ -4,6 +4,8 @@ usage:
 
 ```bash
 git clone git@github.com:dlwr/copyright-protector.git
+cd copyright-protector
+heroku create -b https://github.com/kr/heroku-buildpack-go.git
 git push heroku master
 ```
 
