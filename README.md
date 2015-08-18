@@ -20,3 +20,7 @@ parameter:
 - `tile=true` tile line effect
    - e.g. http://copyright-protector.herokuapp.com/?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true&tile=true
    - ![tiled](http://copyright-protector.herokuapp.com/?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true&tile=true)
+
+#### Products which use this protector
+
+- [copy-right protect](http://let.hatelabo.jp/yuta25/let/hJmf5_3V9vtf) (bookmark let)
