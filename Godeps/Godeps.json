@@ -1,0 +1,11 @@
+{
+	"ImportPath": "github.com/dlwr/copyright-protector",
+	"GoVersion": "go1.4.2",
+	"Deps": [
+		{
+			"ImportPath": "github.com/gographics/imagick/imagick",
+			"Comment": "0.0.1-37-g2ffa5f5",
+			"Rev": "2ffa5f527df6bcf6bae9f4e604ae315990ccaefb"
+		}
+	]
+}
