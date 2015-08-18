@@ -9,13 +9,14 @@ import (
 	"math/rand"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"time"
 )
 
 func main() {
 	http.HandleFunc("/", handler)
-	http.ListenAndServe(":80", nil)
+	http.ListenAndServe(":" + os.Getenv("PORT"), nil)
 }
 
 
