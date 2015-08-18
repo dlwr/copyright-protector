@@ -37,9 +37,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 	var data []byte
 	if q.Get("glitch") == "true" {
-		data = glitchImage(wand, r.URL.Query())
+		data, err = glitchImage(wand, r.URL.Query())
 	} else {
 		data = wand.GetImage().GetImageBlob()
+	}
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
 	}
 	// data := wand.GetImage().GetImageBlob()
 	w.Header().Set("Content-Type", "image/png")
@@ -111,7 +115,7 @@ func tileLineImage(wand *imagick.MagickWand) {
 }
 
 
-func glitchImage(wand *imagick.MagickWand, q url.Values) []byte {
+func glitchImage(wand *imagick.MagickWand, q url.Values) ([]byte, error) {
 	data := wand.GetImage().GetImageBlob()
 	jpgHeaderLength := getJpegHeaderSize(data)
 	maxIndex := len(data) -jpgHeaderLength - 4
@@ -129,9 +133,13 @@ func glitchImage(wand *imagick.MagickWand, q url.Values) []byte {
 		data[int(index)] = byte(math.Floor(params["amount"] * float64(256)))
 	}
 	wand2 := imagick.NewMagickWand()
-	wand2.ReadImageBlob(data)
-	wand2.SetImageFormat("PNG")
-	return wand2.GetImage().GetImageBlob()
+	if err := wand2.ReadImageBlob(data); err != nil {
+		return nil, err
+	}
+	if err := wand2.SetImageFormat("PNG"); err != nil {
+		return nil, err
+	}
+	return wand2.GetImage().GetImageBlob(), nil
 }
 
 func getParams(q url.Values) map[string]float64 {
