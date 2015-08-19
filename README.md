@@ -9,6 +9,8 @@ heroku create -b https://github.com/kr/heroku-buildpack-go.git
 git push heroku master
 ```
 
+then, access `http://{your-app-name}.herokuapp.com/protected.png?url={image url you want to protect}` with options below.
+
 parameter:
 - `url={url(encoded is better)}` image url
 - `glitch=true` glitch effect
