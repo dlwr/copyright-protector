@@ -15,7 +15,7 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/protected.png", handler)
 	http.ListenAndServe(":" + os.Getenv("PORT"), nil)
 }
 
