@@ -9,17 +9,19 @@ heroku create -b https://github.com/kr/heroku-buildpack-go.git
 git push heroku master
 ```
 
+then, access `http://{your-app-name}.herokuapp.com/protected.png?url={image url you want to protect}` with options below.
+
 parameter:
 - `url={url(encoded is better)}` image url
 - `glitch=true` glitch effect
-   - e.g. http://copyright-protector.herokuapp.com/?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&glitch=true
-   - ![glitched](http://copyright-protector.herokuapp.com/?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&glitch=true)
+   - e.g. http://copyright-protector.herokuapp.com/protected.png?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&glitch=true
+   - ![glitched](http://copyright-protector.herokuapp.com/protected.png?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&glitch=true)
 - `mozaic=true` mozaic effect
-   - e.g. http://copyright-protector.herokuapp.com/?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true
-   - ![mozaiced](http://copyright-protector.herokuapp.com/?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true)
+   - e.g. http://copyright-protector.herokuapp.com/protected.png?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true
+   - ![mozaiced](http://copyright-protector.herokuapp.com/protected.png?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true)
 - `tile=true` tile line effect
-   - e.g. http://copyright-protector.herokuapp.com/?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true&tile=true
-   - ![tiled](http://copyright-protector.herokuapp.com/?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true&tile=true)
+   - e.g. http://copyright-protector.herokuapp.com/protected.png?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true&tile=true
+   - ![tiled](http://copyright-protector.herokuapp.com/protected.png?url=http://41.media.tumblr.com/PwCIEKd8N2oro4neq2zBCcLi_400.jpg&mozaic=true&tile=true)
 
 #### Products which use this protector
 
