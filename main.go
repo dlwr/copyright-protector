@@ -100,14 +100,65 @@ func resizeImage(wand *imagick.MagickWand, size int, mozaic bool) *imagick.Magic
 func tileLineImage(wand *imagick.MagickWand) {
 	it := wand.NewPixelIterator()
 	it.SetLastIteratorRow()
+	width := float32(wand.GetImageWidth())
+	height := float32(wand.GetImageHeight())
+	heightRemain := float32(int(height / 20))
+	if heightRemain != 0 {
+		heightRemain = height / float32(heightRemain) - 20
+	}
+	widthRemain := float32(int(width / 20))
+	if widthRemain != 0 {
+		widthRemain = width / float32(widthRemain) - 20
+	}
 	cnt := it.GetIteratorRow()
 	it.SetFirstIteratorRow()
-	for i := 0; i < cnt; i++ {
+	heightCount := 0
+	nextHeight := 21
+	hLineCount := 0
+	hRemainCount := heightRemain
+	widthCount := 0
+	nextWidth := 21
+	wLineCount := 0
+	wRemainCount := widthRemain
+	for i := 0; i <= cnt; i++ {
+		heightCount++
 		it.SetIteratorRow(i)
 		pws := it.GetCurrentIteratorRow()
-		for j := 0; j < len(pws); j++ {
-			if i % 20 < 2 || j % 20 < 2 {
+		if nextHeight - heightCount < 2 {
+			for j := 0; j < len(pws); j++ {
 				pws[j].SetColor("#ffffff")
+			}
+			if nextHeight == heightCount {
+				heightCount = 0
+				hLineCount++
+				hRemainCount += heightRemain
+				if hRemainCount > 1 {
+					hRemainCount -= 1
+					nextHeight = 21
+				} else {
+					nextHeight = 20
+				}
+			}
+		} else {
+			for j := 0; j < len(pws); j++ {
+				widthCount++
+				if nextWidth - widthCount < 2 {
+					pws[j].SetColor("#ffffff")
+					if nextWidth == widthCount {
+						widthCount = 0
+						wLineCount++
+						wRemainCount += widthRemain
+						if wRemainCount > 1 {
+							wRemainCount -= 1
+							nextWidth = 21
+						} else {
+							nextWidth = 20
+						}
+					}
+				}
+				// if j % 20 < 2 {
+				// 	pws[j].SetColor("#ffffff")
+				// }
 			}
 		}
 		it.SyncIterator()
