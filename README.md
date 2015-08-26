@@ -26,4 +26,4 @@ parameter:
 #### Products which use this protector
 
 - [copy-right protect](http://let.hatelabo.jp/yuta25/let/hJmf5_3V9vtf) (bookmarklet)
-- [dsbd (buyable)](https://suzuri.jp/yuta25/omoide/2384) (reblog t-shirts shop)
+- [dsbd (buyable)](https://suzuri.jp/yuta25/omoide/2384) (reblog t-shirts shop avoiding protecting copyright)
